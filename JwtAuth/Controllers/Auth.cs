@@ -1,14 +1,19 @@
-﻿using JwtAuth.Entities;
+﻿using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+
+using JwtAuth.Entities;
 using JwtAuth.Models;
 
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 
 namespace JwtAuth.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class Auth : ControllerBase
+    public class AuthController(IConfiguration configuration) : ControllerBase
     {
         public static User user = new();
 
@@ -38,10 +43,34 @@ namespace JwtAuth.Controllers
                 return BadRequest("Wrong password");
             // In a real application, you never mention whether the user or password are wrong.
 
-            string token = "success"; // Placeholder for JWT token generation.
-            // In a real application, you would generate a JWT token here.
+            string token = CreateToken(user);
 
             return Ok(token);
+        }
+
+        private string CreateToken(User user)
+        {
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, user.Username)
+            };
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8
+                .GetBytes(configuration.GetValue<string>("AppSettings:Token")!));
+
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512);
+            // Chck the security algorithm, this one is one is wrong!!!
+
+            var tokenDescriptor = new JwtSecurityToken
+            (
+                issuer: configuration.GetValue<string>("AppSettings:Issuer"),
+                audience: configuration.GetValue<string>("AppSettings:Audience"),
+                claims: claims,
+                expires: DateTime.UtcNow.AddDays(1),
+                signingCredentials: creds
+            );
+
+            return new JwtSecurityTokenHandler().WriteToken(tokenDescriptor);
         }
     }
 }
