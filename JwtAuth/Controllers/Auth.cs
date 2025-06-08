@@ -25,5 +25,23 @@ namespace JwtAuth.Controllers
 
             // This is a simple example.
         }
+
+        [HttpPost("login")]
+        public ActionResult<string> Login(UserDto request)
+        {
+            if (user.Username != request.Username)
+                return BadRequest("User not found");
+
+            if (new PasswordHasher<User>()
+                .VerifyHashedPassword(user, user.PasswordHash, request.Password)
+                == PasswordVerificationResult.Failed)
+                return BadRequest("Wrong password");
+            // In a real application, you never mention whether the user or password are wrong.
+
+            string token = "success"; // Placeholder for JWT token generation.
+            // In a real application, you would generate a JWT token here.
+
+            return Ok(token);
+        }
     }
 }
