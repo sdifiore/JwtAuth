@@ -59,7 +59,6 @@ namespace JwtAuth.Controllers
                 .GetBytes(configuration.GetValue<string>("AppSettings:Token")!));
 
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512);
-            // Chck the security algorithm, this one is one is wrong!!!
 
             var tokenDescriptor = new JwtSecurityToken
             (

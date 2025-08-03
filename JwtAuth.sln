@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36202.13
+VisualStudioVersion = 17.14.36327.8 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtAuth", "JwtAuth\JwtAuth.csproj", "{8C1A67BF-5F85-4F0C-B520-528F12CEFE97}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtAuth", "JwtAuth\JwtAuth.csproj", "{74B2F136-5B51-4776-80F6-6E81D7E23355}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8C1A67BF-5F85-4F0C-B520-528F12CEFE97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8C1A67BF-5F85-4F0C-B520-528F12CEFE97}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8C1A67BF-5F85-4F0C-B520-528F12CEFE97}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8C1A67BF-5F85-4F0C-B520-528F12CEFE97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74B2F136-5B51-4776-80F6-6E81D7E23355}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74B2F136-5B51-4776-80F6-6E81D7E23355}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74B2F136-5B51-4776-80F6-6E81D7E23355}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74B2F136-5B51-4776-80F6-6E81D7E23355}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {E7A5DFC4-4023-4CC2-8EBB-9304786BFF76}
+		SolutionGuid = {AE6B04EB-A226-4F78-A8BA-F9421B83DE2B}
 	EndGlobalSection
 EndGlobal
